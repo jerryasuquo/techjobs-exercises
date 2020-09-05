@@ -1,0 +1,30 @@
+GitHub Exercises. – Part I
+
+1. mkdir exercise_repo
+   cd exercise_repo
+   touch exercise.txt
+   git init
+   git add exercise.txt
+   git commit -m "initial commit"
+
+2. On your web browser, type in https://github.com/new
+   Type in exercise_repo as the name of this repository
+   Then create the repo
+   In the terminal, run git remote add origin https://github.com/jerryasuquo/exercise_repo
+   Then run git push -u origin master
+
+3. On your web browser, type in https://github.com/inf-paces/git_practice
+   Click on fork to fork the repo to your profile, and copy the ssh or http link
+   In your terminal, run git clone https://github.com/inf-paces/git_practice
+   Add a new file or changes, then add and commit the changes
+   Push to git, and make a pull request after
+
+4. To create a new branch we run, git checkout -b NAME_OF_BRANCH
+   Create a branch.txt file. Add the file (git add .)
+   Commit the file with the message -m "added branch.txt".
+   git push
+
+5. On your GitHub profile, inside the repository you want to make a pull request from, click on the 'Pull request' button
+   On the next interface, click on Create pull request (Ensure you are requesting to the master branch)
+   Specify a title and/or comment for it
+   Scroll down and click on 'Create pull request'

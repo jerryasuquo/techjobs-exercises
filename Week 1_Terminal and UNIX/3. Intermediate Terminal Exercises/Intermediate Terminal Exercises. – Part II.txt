@@ -1,0 +1,21 @@
+Intermediate Terminal Exercises. – Part II
+1.	cd into a folder called Desktop and run this pattern to find all files that have a name of "learn.":
+    find . -name "learn."
+
+2.	cd into a folder called Desktop and run this pattern to find all files that start with a "P.":
+    find . -name "[P]*"
+
+3.	cd into a folder called Desktop and run this pattern to find all files that end with .txt:
+    find . -name "*.txt"
+
+4.	find inside of the views folder (assume we are inside the views folder) anything that has the text data somewhere in the filename (this could be the beginning as well)
+    find . -name "*data*"
+
+5.	-c count matches
+    grep -c "Elie" instructors.txt
+
+6.	-w for full word search
+    grep -w "P" instructors.txt => P
+
+7.	-n show line number
+    grep -niw "z" instructors.txt

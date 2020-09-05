@@ -1,0 +1,42 @@
+Intermediate Terminal Exercises. – Part I
+1.	export FIRST_NAME=Jeremiah
+
+2.	echo $FIRST_NAME
+
+3.	echo $PATH
+
+4.	Your terminal uses the PATH environment variable to find programs to execute.
+
+5.	It's a great way of saving a useful variable in our terminal's environment.
+
+6.	To save environment variables, you need to modify the shell configuration file in your home directory. This file is different depending on what your default shell is.
+
+7.	A process is a program on your computer that is being run. For example, when you have Google's chrome browser open, that is a process running on your machine. An email application, a terminal window, and even the ls command are also processes when they are being executed on your machine.
+
+8.	The ps command is a useful tool for seeing which processes are running on your machine. You can execute the command ps on its own, but more commonly you'll see the command ps aux being used. 
+
+9.	The PID column is a number that uniquely identifies the process.
+
+10.	We can stop the process from running by using the kill command. Next, to kill the process, type kill and then the PID and hit enter.
+
+11.	Whenever you try to kill a process, a signal is sent to that process telling it to terminate. By default that signal is the TERM signal. However, if a program has crashed or is frozen for some reason, it's possible that it won't pick up on that signal and the process may not terminate, hence, the command kill -9 is executed, not kill. The -9 flag sends a different signal to the process: according to the manual for kill , -9 represents the KILL signal, which is a "non-catchable, non-ignorable kill." If killing a process doesn't work, try killing with -9 and see if that gets the job done.
+
+12.	-i for case insensitive search
+grep -i "elie" names.txt => Elie
+
+13.	-B display a certain number of lines before
+grep -B 3 "Beth" names.txt
+
+14.	-C display a certain number of lines around the match
+grep -C 3 "Beth" names.txt
+
+15.	-A display a certain number of lines around the match
+grep -A 3 "Beth" names.txt
+
+16.	-w for full word search
+grep -iw "beth" names.txt => Beth
+
+17.	-n for line number of a match
+grep -ni "Jane" names.txt =>
+10: Jane
+11: Janey

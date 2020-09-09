@@ -1,0 +1,27 @@
+Branching and Merging Exercises. - Part I
+
+1. If you are dealing with an untracked or unmerged file, you cannot use git checkout to remove it from the working directory. You must use git clean -df to remove these files.
+
+2. -d
+   Normally, when no <path> is specified, git clean will not recurse into untracked directories to avoid removing too much. Specify -d to have it recurse into such directories as well. If any paths are specified, -d is irrelevant; all untracked files matching the specified paths (with exceptions for nested git directories mentioned under --force) will be removed.
+
+-f, --force
+   If the Git configuration variable clean.requireForce is not set to false, git clean will refuse to delete files or directories unless given -f or -i. Git will refuse to modify untracked nested git repositories (directories with a .git subdirectory) unless a second -f is given.
+
+3. To create a new branch we use the git checkout command with the -b flag and then pass in a name of a branch. This looks like git checkout -b NAME_OF_BRANCH .
+
+4. A fast forward merge is when git can easily tell when the commits happened and "put" one set of commits on top of another chronologically.
+
+When different commits happen at different times on two branches, and git cannot easily determine what order these commits happened in, a recursive merge needs to happen. In a recursive merge, git uses an algoinf-paces to try to merge branches when a simple fast-forward merge won't suffice.
+
+5. git checkout NAME_OF_BRANCH
+
+6. If you want to remove files from the working directory (before they have been staged) you can use git checkout NAME_OF_FILE .
+
+7. To delete a branch we make sure we are not on that branch and then run git branch -D NAME_OF_BRANCH .
+
+8. If you want to see differences between your commits you can use the git diff command and specify the SHA to compare.
+
+9. Type git rm --cached NAME_OF_FILE .
+
+10. When you commit changes to the same file on two different branches, Git does not know which commit to go with so it creates a merge conflict.  

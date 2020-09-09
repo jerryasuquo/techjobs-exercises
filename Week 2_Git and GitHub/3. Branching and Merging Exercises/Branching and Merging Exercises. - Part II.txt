@@ -1,0 +1,38 @@
+Branching and Merging Exercises. - Part II
+
+Creating our merge conflict, we'd be starting in our home directory:
+   
+   mkdir merge_conflicts
+   cd merge_conflicts
+   git init
+   echo first > first.txt
+   git add .
+   git commit -m "first commit" 
+ 
+   git checkout -b first_branch
+   echo second > second.txt
+   git add .
+   git commit -m "added second.txt" 
+ 
+   git checkout master
+   echo something_different > second.txt
+   git add .
+   git commit -m "added second.txt on the master branch" 
+ 
+   git merge first_branch
+
+This final command should output:
+Auto-merging second.txt 
+CONFLICT (add/add): Merge conflict in second.txt 
+Recorded preimage for 'second.txt' 
+Automatic merge failed; fix conflicts and then commit the result. 
+
+If we take a look at our second.txt file ( cat second.txt ) we will see this:
+something_different ======= second >>>>>>> first_branch 
+The only thing we need to do is decide what text we want to keep, delete the character separating the two options ( ======= and >>>>>>> ), and add and commit the results of your manual merge.
+Let's open up this file in our text editor and change it so that it looks like this:
+   second
+This is our way of letting Git know that we want to keep the text from first_branch and discard the text from master .
+Then let's go back to the terminal and run
+   git add .
+   git commit -m "fixing merge conflict"

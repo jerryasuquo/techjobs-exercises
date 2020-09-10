@@ -5,3 +5,4 @@ https://snoseeds.github.io/inf-paces-school/courses
 
 * Week 1: Terminal and UNIX
 * Week 2: Git and GitHub
+* Week 3: HTML CSS Fundamentals

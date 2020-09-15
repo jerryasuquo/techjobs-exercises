@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+nav li {
+    float: right;
+    list-style: none;
+    padding: 1.615rem 0.692rem 0 0.692rem;
+}
+
+nav div {
+    padding: 0 1.538rem 1.076rem 0;
+    position: relative;
+    bottom: 0.384rem;
+}
+
+.fas-th {
+    padding: 1.076rem 0.692rem;
+}
+
+main {
+    height: 88vh;
+}
+
+.logo img {
+    margin: 11.4% 0 0 40%;
+}
+
+form input {
+    height: 3.615rem;
+    margin: 1.8% 0 0 27.4%;
+    width: 45rem;
+    border-radius: 3.846rem;
+}
+
+form input[placeholder=""] {
+    padding-left: 3.076rem;
+}
+
+.fa-search {
+    left: 31.461rem;
+    position: relative;
+}
+
+.fa-microphone {
+    position: relative;
+    right: 3.076rem;
+    font-size: 1.246rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.search-link {
+    margin-left: 39.7%;
+    margin-right: 7px;
+}
+
+.search-link,
+.lucky-link {
+    position: relative;
+    top: 37px;
+    padding: 10.5px 17px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f2f2f2;
+}
+
+p {
+    position: relative;
+    top: 78px;
+    text-align: center;
+    margin-left: 2px;
+}
+
+p>a:first-child {
+    margin-left: 7px;
+}
+
+p>a {
+    margin-right: 6px;
+}
+
+footer {
+    background-color: #f2f2f2;
+    color: #0000008a;
+}
+
+footer a {
+    color: #0000008a;
+}
+
+footer section {
+    padding: 12px 30px;
+}
+
+.region {
+    padding: 12px 0 12px 30px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 15px;
+}
+
+section a {
+    padding: 12px 20.5px 0 0;
+    font-size: 14px;
+}
+
+section span a {
+    float: right;
+    position: relative;
+    bottom: 10px;
+    left: 5px;
+    font-size: 14.1px;
+}

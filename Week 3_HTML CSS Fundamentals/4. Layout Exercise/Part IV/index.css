@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+}
+
+.first {
+  background-color: green;
+  width: 100%;
+  height: 120px;
+  margin: 4.5% 0 21px 0;
+}
+
+.one {
+  background-image: url(./WCOLOR5.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: calc(370px - 140px);
+  margin: 0 20px 21px 0;
+}
+
+.two {
+  background-image: url(./WCOLOR5.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: calc(370px - 140px);
+  margin: 0 20px 21px 0;
+}
+
+.tre {
+  background-image: url(./WCOLOR5.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: calc(370px - 140px);
+  margin: 0 0 21px 0;
+}
+
+.sec {
+  background-color: orange;
+  width: 100%;
+  height: calc(370px - 140px);
+  margin: 0 20px 0 0;
+}
+
+.thr {
+  background-color: orangered;
+  width: 100%;
+  height: calc(370px - 140px);
+  margin: 0 20px 0 0;
+}
+
+.frt {
+  background-color: cornflowerblue;
+  width: 100%;
+  height: calc(370px - 140px);
+  /* margin: 15px 80px 0 20px; */
+}

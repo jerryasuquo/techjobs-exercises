@@ -1,0 +1,43 @@
+JavaScript History and Setup.
+
+1. What is the difference between JavaScript and ECMAScript?
+
+ECMAScript is a standard that dictates certain features and sets of functionality, but there are many different JavaScript engines that implement that ECMAScript standard; one is Google's V8 engine. While,
+JavaScript is a programming language that is essential for web development, and is most likely providing the interaction on a web page.
+
+2. Who is Brendan Eich?
+JavaScript was created in 10 days in May 1995 by Brendan Eich.
+
+3. How do you hide and show the Chrome console?
+To show the Chrome console press Option + Command + j on a Mac (or Control + Shift + J on Windows and Linux). Another way is to right click on the web page, select Inspect, and then move to the tab called Console to get to the console.
+
+4. Create a simple page with a script tag. Inside of the script tag declare a couple of variables and then log their values to the console.
+Using JavaScript and HTML in 2 Separate Files:
+This is a better practice, especially as your HTML and JavaScript files get longer.
+Open up a text editor like VS Code and create a file with a .html extension (index.html for example). Save the file!
+We include a script tag by adding a <script src="first.js"></script> tag inside of the <head></head> tag where you can  link to a separate JavaScript file.
+Inside of the script tag, write the following:
+
+let alert = "Hello, World!";
+const title = 'Coming to you from first.js!';
+console.log(alert); // Hello, World!
+console.log(title); // Coming to you from first.js!
+
+5. Research prompt and confirm - what do they do?
+
+The prompt:
+There are many ways to use the prompt feature. 
+The prompt() open the blank prompt window. The Window.prompt() displays a dialog with an optional message prompting the user to input some text.
+A prompt dialog contains a single-line textbox, a Cancel button, and an OK button, and returns the (possibly empty) text the user entered into that textbox. Please note that result is a string.
+
+let sign = prompt("What's your sign?");
+
+The confirm:
+The Window.confirm() method displays a modal dialog with an optional message and two buttons, OK and Cancel.
+
+result = window.confirm(message);
+
+Here, message is the optional string to be displayed in the dialog.
+result is a boolean value indicating whether OK or Cancel was selected (true means OK).
+
+(window.confirm("Do you really want to leave?")

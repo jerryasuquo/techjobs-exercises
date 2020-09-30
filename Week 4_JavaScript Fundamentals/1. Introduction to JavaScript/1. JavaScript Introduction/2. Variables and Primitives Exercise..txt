@@ -1,0 +1,26 @@
+Variables and Primitives. Exercise
+
+1. Create the following variables
+name, which is a string set to your current name
+dayOfBirth, which is a number set to the day of your birth month
+let name = "Harrison Justin";
+let dayOfBirth = "07-08-14";
+
+2. See what happens when you have multiple variables of the same name. Which one takes precedence? 
+The one that was declared last preceedes over the rest.
+
+3. Write some JavaScript that prompt's the user for their favorite color. Once the user has submitted a favorite color, log that color to the console along with a friendly message.
+let favoriteColor = prompt("favorite color is?");
+"Harrison has a " + favoriteColor + " ring"
+
+4. Create a string that contains both single quotes and double quotes.
+"Harrison said" + ' I have a ' + favoriteColor + "ring"
+
+5. What is the difference between null and undefined?
+The difference between null and undefined is that null means an empty value, undefined means there was no explicitly defined value so a default undefined value is assigned.
+
+6. What is NaN in JavaScript? What is the typeof NaN?
+When JavaScript does not know how to convert something to a number, you will get a special value called NaN (short for Not a Number). The typeof NaN is a Number.
+
+7. You can declare a variable by typing let thing;. What is the value of thing?
+The value of thing would be undefined, since a value was not assigned to thing explicitly.

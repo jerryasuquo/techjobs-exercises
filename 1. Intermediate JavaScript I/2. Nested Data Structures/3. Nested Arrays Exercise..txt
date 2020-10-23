@@ -1,0 +1,66 @@
+Nested Arrays Exercise.
+
+1. Given the following array, write a function called printEvens that console.logs all of the even numbers
+
+let nestedArr = [[1, 2, 3], [4, 5, 6], [7, 8], [9, 10, 11, 12]];
+
+function printEvens () {
+    for (let i = 0; i < nestedArr.length; i++) {
+        for (let j = 0; j < nestedArr[i].length; j++) {
+            if (nestedArr[i][j] % 2 === 0) {
+                console.log(nestedArr[i][j]);
+            }
+        }
+    }
+}
+
+printEvens();
+
+// 2
+// 4
+// 6
+// 8
+// 10
+// 12
+
+2. Given the following array, write a function called sumTotal returns the sum of all numbers in the array
+
+let nestedArr = [[1, 2], [3, 4], [5, 6]];
+
+function sumTotal () {
+    let total = 0;
+    for (let i = 0; i < nestedArr.length; i++) {
+        for (let j = 0; j < nestedArr[i].length; j++) {
+            total = total + nestedArr[i][j]
+        }
+    }
+    return total;
+}
+
+sumTotal(); // 21
+
+3. Given the following array, write a function called countVowels, which returns the count of all of the vowels in each string regardless of case. To see if a value is an array, you can not use typeof since that will return 'object', so one way to do this is by using the Array.isArray function.
+
+let arr = [];
+Array.isArray(arr); // true
+Array.isArray("Hello"); // false
+
+let nestedArr = ["Elie", ["Matt", ["Tim"]], ["Colt", ["Whiskey", ["Janey"], "Tom"]], "Lorien"];
+
+function countVowels () {
+  let letter = nestedArr[i][j][k][l];
+  let letterCount = 0;
+  for (let i = 0; i < nestedArr.length; i++) {
+    for (let j = 0; j < nestedArr[i].length; j++) {
+        for (let k = 0; k < nestedArr[i][j].length; k++) {
+            for (let l = 0; l < nestedArr[i][j][k].length; ++) {
+                if (letter === a || letter === e || letter === i || letter === o || letter === u ) {
+                    letterCount = letterCount + 1;
+                }
+            }
+        }
+    }
+    return letterCount;
+}
+
+countVowels(); // 13

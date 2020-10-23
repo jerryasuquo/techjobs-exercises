@@ -1,4 +1,4 @@
-Higher Order Functions, Timers, and Closures Exercises.
+// Higher Order Functions, Timers, and Closures Exercises.
 
 1. countdown
 

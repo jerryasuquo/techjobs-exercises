@@ -1,0 +1,50 @@
+Closures. Exercise
+
+1. What is a closure?
+
+Closure is when a function is able to access variables from an outer function that has already returned.
+
+2. List two reasons why closures are useful
+
+i. One of the more common use cases for is to create a "private variable," or a variable that can not be accessed directly (and overwritten).
+ii. It's a great way to wrap everything in an IIFE that contains private data that can not be accessed globally.
+
+3. What is a module?
+
+Module is a piece of code that is encapsulated and can be reused quite easily.
+
+4. What is the arguments array-like object?
+
+The arguments array-like object is a special keyword called arguments which looks like an array (it is not EXACTLY an array) and can be accessed using [] notation.
+
+5. Why do we call arguments an array-like-object?
+
+The reason is because even though the arguments keyword looks like an array and even has a length property, it is actually not an array. It is a special kind of object.
+
+6. Write a function called createCounter. This function should contain a variable count that is initialized to 0. This function should return another function that when invoked, increments the counter by 1 and returns the count variable. You should be able to create multiple counters with the createCounter function and they should all have their own private variable called count.
+
+function createCounter () {
+    let count = 0;
+    
+    return function incrementCount () {
+        return count++
+    }
+}
+
+let firstCounter = createCounter();
+
+firstCounter(); // 1
+firstCounter(); // 2
+firstCounter(); // 3
+firstCounter(); // 4
+
+let secondCounter = createCounter();
+
+secondCounter(); // 1
+secondCounter(); // 2
+secondCounter(); // 3
+
+firstCounter(); // 5
+firstCounter(); // 6
+
+secondCounter(); // 4

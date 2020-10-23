@@ -1,0 +1,40 @@
+Answer the following questions:
+
+1. What does the throw keyword do?
+
+When we want to throw an error when something is done incorrectly in our application, we use the throw keyword followed by an error object to return an error and stop code execution.
+
+2. What does the finally keyword do?
+
+Inside of the finally block, code will execute regardless of an error being thrown.
+
+3. What is the difference between a TypeError and ReferenceError?
+
+ReferenceError occurs when we try to access a variable that does not exist in that scope. While, TypeError occurs when you make incorrect use of certain types in javascript.
+
+4. How do you create a snippet in the Chrome dev tools?
+
+STEPS:
+I.  Navigate to about:blank on your browser
+
+II.  Open up the console, by using ctrl + shift + j and move to the sources tab.
+
+III.  To the left of the sources tab is a navigation bar, click on the Snippets tab
+
+IV.  Inside of the Snippets tab, right click and click on 'New snippet', and give it a name
+
+V. Write your JavaScript code inside the editor provide, and then press ctrl + s to save, when you are done.
+
+5. In the Chrome dev tools, on the right hand side of the sources tab, there is a "pause" button which allows you to "pause on caught exceptions." What is an exception?
+
+An exception is when you create and throw your own errors in applications that you write
+
+6. How do we "catch" errors in JavaScript? Give an example with code for what that might look like.
+
+To "catch" errors in JavaScript, we use a try / catch statement. We place code inside of the try block (a block is defined as code inside of a {}) and if an error is thrown, the code moves to the catch block. After the catch block, code continues to execute.
+
+try {
+    thisDoesNotExist;
+} catch(e) {
+    console.log("The error is ", e);
+}

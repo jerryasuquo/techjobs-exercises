@@ -1,0 +1,34 @@
+Introduction to XHR and AJAX. Exercises
+
+Answer the following questions:
+
+Where else have you seen 'asynchronous' code before? Think back to a certain section in Part I of the Intermediate JavaScript course.
+Higher Order Functions, Timers, and Closures section
+
+What is XHR?
+XHR stands for XMLHttpRequest, which is an API that allows for transferring data between client and server. This API is ONLY available to scripting languages in the browser (e.g. JavaScript).
+
+What is XML? Why do we prefer to use JSON?
+XML stands for Extensible Markup language. In some ways XML looks similar to HTML (both use tags enclosed with brackets, for instance), but XML is primarily used to store text data.
+
+We prefer to use JSON because, JavaScript Object Notation (JSON) has a more compact style than XML, and it is often more readable for humans. The lightweight approach of JSON can make significant improvements in RESTful APIs working with complex systems. The XML software parsing process can take a long time too.
+
+What is AJAX?
+AJAX stands for Asynchronous JavaScript and XML. It is a set of technologies that allows for building single page applications (applications that do not require full page refreshes to change data on the page).
+
+Using the XHR object, make a request to https://omdbapi.com and choose a title to search by using the query string and key of t.
+var XHR = new XMLHttpRequest();
+XHR.onreadystatechange = function() {
+  if (XHR.readyState == 4 && XHR.status == 200) {
+    console.log(JSON.parse(XHR.responseText))
+  } 
+}; 
+XHR.open("GET", "https://omdbapi.com?t=teenage");
+XHR.send();
+
+Using the fetch API, make a request to https://omdbapi.com and choose a title to search by using the query string and key of t.
+fetch('https://omdbapi.com?t=titanic').then(function(response){
+    return response.json().then(function(data){
+        console.log(data);
+    });
+});

@@ -1,0 +1,75 @@
+How the Web Works Exercises.
+
+How The Web Works Exercise
+Answer the following questions. Write out your answers in atext or markdown file.
+
+What is HTTP?
+HTTP - Hyper Text Transfer Protocol is a well-defined client-server protocol which allows the client to get data from the server or set data on the server.
+
+What is a URL?
+A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
+
+What is TCP?
+Transmission Control Protocol (TCP) is a standard that defines how to establish and maintain a network connection through which application programs can exchange data.
+
+What is IP?
+The Internet Protocol (IP) is the protocol that governs how data is sent across a network from one computer to another. Every computer has at least one IP address which is a unique identifier of that computer on the web.
+
+What is DNS?
+Domain Name System is a server that takes a domain name like https://www.msn.com as input and returns an IP address as output. This is necessary for the web because computers can only make connections to ip addresses.
+
+What is idempotent?
+Idempotent describes an operation that can be repeated many times on a set of data and the state of the set of data will not change. This concept is applicable to the HTTP spec since operations like a GET request should be idempotent but a POST request is not.
+
+What is a query string?
+A query string is a part of a uniform resource locator (URL) that assigns values to specified parameters.
+
+What is a path or route?
+Path is the trail to the resource on the Web server. A path may relate to a file that the web server has in its hard drive or an abstract resource that the web server is able to create, read update or delete.
+
+List four HTTP Verbs and their use cases.
+GET - An idempotent operation that is designed for getting data from the server.
+POST - A non idempotent operation that can create data on the server or otherwise modify data.
+PUT - Technically idempotent, but commonly used for updating data that already exists on the server.
+DELETE - Deletes data from the server. Not idempotent.
+
+What is a client?
+n computing, a client is a piece of computer hardware or software that accesses a service made available by a server as part of the client–server model of computer networks.
+
+What is a server?
+In computing, a server is a piece of computer hardware or software that provides functionality for other programs or devices, called "clients".
+
+What is an HTTP request?
+The message that is sent by a client to a server is what is known as an HTTP request.
+
+What is an HTTP response?
+An HTTP response is made by a server to a client. The aim of the response is to provide the client with the resource it requested, or inform the client that the action it requested has been carried out; or else to inform the client that an error occurred in processing its request.
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+HTTP headers let the client and the server pass additional information with an HTTP request or response. An HTTP header consists of its case-insensitive name followed by a colon (:), then by its value. For example,
+Accept: text/html
+Accept-Charset: utf-8
+
+What is REST?
+REST (REpresentational State Transfer) is an architectural style, and an approach to communications that is often used in the development of Web services. The purpose of REST is to provide a framework for creating fast, scalable and reliable APIs.
+
+What is JSON?
+JavaScript Object Notation (JSON) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types.
+
+What happens when you type in "Hello World" in google.com and press enter?
+1. First, the browser needs to find server you are trying communicate with based on whatever you typed.
+2. To communicate with the web server hosting the website you’ve requested it needs to discover its IP address, which will allow a connection to be established across the internet. To get the IP address, specific servers called Domain Name Servers (DNS) with well known IP addresses exist that maintain tables of domain names and the actual IP addresses of the servers hosting their associated content. That way, your browser can first check with a DNS server for the actual IP address of e.g. www.google.com and then make a second request directly to the correct IP address.
+3. With the correct IP address in hand, the browser will make a GET request to the web server using HTTP and wait for a response, ultimately setting up a bidirectional connection between the computer running the browser and the one running the webserver. If secure communication is desired, then that will be negotiated between the server and the client before any significant data is sent.
+4. On the server side, unless it is serving purely static HTML content, it will probably need to query some kind of application server or run some scripts based on the requests of the user or some external information (e.g. time of day). This will be used to generate custom HTML content before being returned to the client.
+5. After all the data needed to render the web page has been transferred, the connection may be closed and the browser rendering engine parses the HTML and stylesheet content and runs any Javascript code. Continuing connection is possible and ongoing communication between the server and the browser may continue, especially in the case of a web application, which updates its view through continued communication with an application server.
+
+What does it mean when we say the web is "stateless"?
+HTTP is stateless - this means that when using HTTP the end point does not "remember" things (such as who you are). It has no state. This is in contrast to a desktop application - if you have a form and you go to a different form, then go back, the state has been retained (so long as you haven't shut down the application).
+
+Normally, in order to maintain state in web application, one uses cookies.
+
+What is curl?
+'curl' is a tool to transfer data from or to a server, using one of the supported protocols
+
+Make a GET request to the icanhazdadjoke API with curl to find all jokes involving the word "pirate." (your answer should be the curl command required).
+curl -H "Accept: application/json" https://icanhazdadjoke.com/search?term=pirate

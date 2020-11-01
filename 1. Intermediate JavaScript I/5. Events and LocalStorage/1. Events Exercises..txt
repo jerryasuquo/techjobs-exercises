@@ -1,0 +1,355 @@
+Events Exercises.
+
+Given the following HTML, create a script.js file to complete the first two parts.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Exercise</title>
+    <style>
+        div {
+          width: 50px;
+          height: 50px;
+          display: inline-block;
+        }
+        .brown{
+          background-color: brown;
+        }
+        .green{
+          background-color: green;
+        }
+        .blue{
+          background-color: blue;
+        }
+        .purple{
+          background-color: purple;
+        }
+        .yellow{
+          background-color: yellow;
+        }
+        .car1 {
+         background-color: #8C9C12;
+        }
+        .car2 {
+         background-color: #1DA788;
+        }
+        .car1, .car2 {
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="change_heading">Change Me!</h1>
+    SELECTED COLOR <span class="selected">None!</span>
+    <section>
+        <div class="brown"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <div class="yellow"></div>
+    </section>
+    <h2>Race!</h2>
+    <button>Start the race!</button>
+    <br>
+    <div class="car1"></div>
+    <br>
+    <div class="car2"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+Part 1
+
+1. Add the necessary code to wait for the DOM to load to make sure that anything you manipulate in the DOM has loaded. You can do this either using window.onload or adding an event listener for DOMContentLoaded.
+
+window.onload = function() {
+    // do something
+}
+
+2. Replace the text "Change me" with "Hello World!".
+
+window.onload = function() {
+    let h1 = document.querySelector("#change_heading");
+    h1.innerText = "Hello World!";
+}
+
+3. When a user hovers over one of the colored boxes change the text to display the color that is being hovered over.
+
+window.onload = function() {
+    let section = document.querySelector("section div");
+    let selectedText = document.querySelector(".selected");
+
+    for (let i = 0; i < section.length; i++) {
+        section[i].addEventListener("mouseover", function(e) {
+            colorName = e.target.getAttribute("class");
+            selectedText.innerText = colorName;
+    });
+}
+
+4. Create a new div element.
+
+let newDiv = document.createElement("div");
+
+5. Give your new div a class of purple and style it so that it has a background color of purple.
+
+// newDiv.className = "purple";
+newDiv.classList.add("purple");
+newDiv.style.backgroundColor = "purple";
+
+6. Append your new div to the page to the section tag.
+
+section.appendChild("newDiv");
+
+Part 2
+
+Create a racing game with the two cars. When the race button is pressed, the two cars should move across the screen until one of them is at the end of the screen. When one of the blocks reaches the end - you should alert "winner!"
+
+var firstCar, secondCar, raceBtn, animate, pos;
+firstCar = document.querySelector(".car1");
+secondCar = document.querySelector(".car2");
+raceBtn = document.querySelector("button");
+
+function race () {
+  animate = setInterval(frame, 20);
+  pos1 = Math.round(Math.random() * 11);
+  pos2 = Math.round(Math.random() * 11);
+
+  function frame() {
+    if (pos1 == 99) {
+      clearInterval(animate);
+      alert('firstCar wins!');
+    } else if (pos1 == 99) {
+      clearInterval(animate);
+      alert('secondCar wins!');
+    } else {
+      pos1++;
+      pos2++;
+      firstCar.style.pos = 'relative';
+      firstCar.style.left = pos1 + "%";
+      secondCar.style.pos = 'relative';
+      secondCar.style.left = pos2 + "%";
+    }
+  }
+};
+
+raceBtn.addEventListener("click", race);
+
+Part 3
+For this assignment you will be combining your knowledge of DOM access and events to build a todo app!
+
+As a user, you should be able to:
+
+Add a new todo (by submitting a form)
+Mark a todo as completed (cross out the text of the todo)
+Remove a todo
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0E0E0E;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        ul li {
+            cursor: pointer;
+            position: relative;
+            padding: 12px 8px 12px 40px;
+            background: #edf1f5;
+            font-size: 18px;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        ul li:nth-child(odd) {
+            background: #FEFEFE;
+        }
+
+        ul li:hover {
+            background: #e2fdf7;
+        }
+
+        ul li.checked {
+            background: #1b2838;
+            color: #f1f1f1;
+            text-decoration: line-through;
+        }
+
+        ul li.checked::before {
+            content: "";
+            position: absolute;
+            border-color: #f1f1f1;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            top: 10px;
+            left: 16px;
+            transform: rotate(45deg);
+            height: 15px;
+            width: 7px;
+        }
+
+        .container {
+            width: 55%;
+            margin: auto;
+        }
+
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 16px 12px 16px;
+        }
+
+        .close:hover {
+            background-color: #e23528;
+            color: #f1f1f1;
+        }
+
+        .header {
+            background-color: #0aac84;
+            padding: 30px 40px;
+            color: #f1f1f1;
+            text-align: center;
+        }
+
+        .header h1 {
+            padding-bottom: 30px;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        .header:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        input {
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            width: 75%;
+            padding: 10px;
+            float: left;
+            font-size: 16px;
+        }
+
+        .addBtn {
+            margin-top: -1px;
+            padding: .6em 0;
+            width: 25%;
+            background: #1b2838;
+            color: #f1f1f1;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 0;
+        }
+
+        .addBtn:hover {
+            background-color: #415164;
+        }
+    </style>
+    <title>To Do App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="header" class="header">
+            <h1>My To Do List</h1>
+            <input type="text" id="input" placeholder="Enter a to do..." />
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="ul">
+            <li>Initial Entry 1</li>
+            <li>Initial Entry 2</li>
+        </ul>
+    </div>
+
+    <script>
+        var allListItems = document.querySelectorAll("li");
+        var ul = document.querySelector("ul");
+
+        // Create a "close" element and append it to all list items
+        for (let i = 0; i < allListItems.length; i++) {
+          let spanElem = document.createElement("span");
+          // \u00D7 is a unicode character for multiplication sign
+          let xSign = document.createTextNode("\u00D7");
+
+          // add a class of close to each new span element
+          spanElem.className = "close";
+          // add xSign to each new span element
+          spanElem.appendChild(xSign);
+          // add new span element to each li
+          allListItems[i].appendChild(spanElem);
+        }
+
+        // Click on the close element to hide the current list item
+        const closeWithXSign = () => {
+          let close = document.querySelectorAll(".close");
+          for (let i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+              let div = this.parentElement;
+              div.style.display = "none";
+            };
+          }
+        };
+
+        // Add the "checked" class when clicking on a list item
+        ul.addEventListener("click", function (event) {
+          event.target.classList.toggle("checked");
+        });
+
+        // Create a new list item on clicking on the "Add" button
+        function newElement() {
+          let li = document.createElement("li");
+          let inputVal = document.getElementById("input").value;
+          let text = document.createTextNode(inputVal);
+          li.appendChild(text);
+
+          if (inputVal === "") {
+            alert("Please enter a to do!");
+          } else {
+            document.querySelector("#ul").appendChild(li);
+          }
+
+          // returns a blank input field
+          document.querySelector("#input").value = "";
+
+          // Create a "close" button again and append it to the newly created item
+          let spanElem = document.createElement("span");
+          // \u00D7 is a unicode character for multiplication sign
+          let xSign = document.createTextNode("\u00D7");
+
+          spanElem.className = "close";
+          spanElem.appendChild(xSign);
+          li.appendChild(spanElem);
+
+          closeWithXSign();
+        }
+
+        closeWithXSign();
+    </script>
+</body>
+
+</html>

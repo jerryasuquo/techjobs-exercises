@@ -1,0 +1,20 @@
+Think about how you would design a game of checkers. What data do you want to save? What components are involved in a checkers game that we could turn into a class? What would the relationship be between one class and another?
+
+When thinking about a game of checkers. Some larger processes and objects stand out that you will want to capture in your code:
+
+Block
+White checker
+Black checker
+The checker
+Show moves
+Execute move
+Check move
+Change turns
+Player
+Bets
+
+Each one of these components could be a class in your program. Let's pick one of the potential classes and figure out the data that it will hold and the functions that it should be able to perform:
+
+Attack moves - check if I have any attack movement
+Check move - IF I CAN'T ATTACK I CHECK IF I CAN GO
+Execute move - exchange coordinates of the moved part

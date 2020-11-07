@@ -1,0 +1,199 @@
+Keyword 'this' Exercises.
+
+// PART 1
+// What is the value of the keyword this in the following example:
+
+var data = this;
+console.log(data);
+// The value of the keyword 'this' refers to the global object, window
+
+// What does this function output? Why?
+
+function logThis() {
+    return this;
+}
+
+logThis();
+
+// It outputs a Window's object, because, 'this' in the function body points to the global windows object since it is neither used inside any parent object nor explicitly bound to an object.
+
+// What does this function output? Why?
+
+var instructor = {
+    firstName: 'Tim',
+    sayHi: function(){
+        console.log("Hello! " + this.firstName);
+    }
+}
+
+instructor.sayHi()
+
+// Output => Hello Tim
+// 'this' here implicitly refers to the parent object, instructor
+
+// What does this function output? Why?
+
+var instructor = {
+    firstName: 'Tim',
+    info: {
+        catOwner: true,
+        boatOwner: true
+    },
+    displayInfo: function(){
+        console.log("Cat owner? " + this.catOwner);
+    }
+}
+
+instructor.displayInfo()
+
+// Output => Cat owner? undefined
+// Here, 'this' implicitly refers to the parent object, instructor. Since catOwner is located inside an object, displayInfo object method does not have access to the this.catOwner object, because it is not an object method that was declared inside the info object. this.info.catOwner works instead.
+
+// What does this function output? Why?
+
+var instructor = {
+    firstName: 'Tim',
+    info: {
+        catOwner: true,
+        boatOwner: true,
+        displayLocation: function(){
+            return this.data.location;
+        },
+        data: {
+            location: "Oakland"
+        }
+    },
+}
+
+instructor.info.displayLocation()
+
+// Output => oakland
+// Here, 'this' implicitly refers to the parent object, info.
+
+// What does this function output? Why?
+
+var instructor = {
+    firstName: 'Tim',
+    info: {
+        catOwner: true,
+        boatOwner: true,
+        displayLocation: function(){
+            return this.location;
+        },
+        data: {
+            location: "Oakland",
+            logLocation: this.displayLocation
+        }
+    },
+}
+
+// instructor.info.data.logLocation()
+
+// Output => undefined
+// Here, the parent object, info, has no such property set as displayLocation but rather a function, and the value assigned to logLocation is not a function.
+
+// Fix the following code:
+
+var obj = {
+    fullName: "Harry Potter",
+    person: {
+        
+        sayHi: function(){
+            return "This person's name is " + this.fullName
+        }
+    }
+}
+
+// fixed:
+
+var obj = {
+    fullName: "Harry Potter",
+    person: {
+        sayHi: function(){
+            return "This person's name is " + obj.fullName
+        }
+    }
+}
+
+// List two examples of "array-like-objects" that we have seen.
+
+// 1. DOM Node lists
+// 2. aruguments
+
+
+// Write a function called sumEvenArguments which takes all of the arguments passed to a function and returns the sum of the even ones.
+
+function sumEvenArguments (args) {
+    args = [...arguments];
+    let total = 0;
+    args.forEach(function (value) {
+        if (value % 2 == 0) {
+            total += value;
+        }
+    })
+    return total;
+}
+
+sumEvenArguments(1, 2, 5, 8); // 10
+
+// Write a function called arrayFrom which converts an array-like-object into an array.
+
+function arrayFrom (args) {
+    args = [...arguments];
+    return args;
+}
+
+arrayFrom(1, 3, 4, 10); // [1, 3, 4, 10]
+
+// Write a function called invokeMax which accepts a function and a maximum amount. invokeMax should return a function that when called increments a counter. If the counter is greater than the maximum amount, the inner function should return "Maxed Out!"
+
+function invokeMax (func, maxAmt) {
+    var counter = 0;
+    return function() {
+        if (counter >= maxAmt) return "Maxed Out!";
+        counter++;
+        return func.apply(this, arguments);
+    }
+}
+
+const add = (a, b) => {
+    return a + b;
+}
+
+var addOnlyThreeTimes = invokeMax(add, 3);
+
+addOnlyThreeTimes(1, 2) // 3
+addOnlyThreeTimes(2, 2) // 4
+addOnlyThreeTimes(1, 2) // 3
+addOnlyThreeTimes(1, 2) // "Maxed Out!"
+
+// Write a function called guessingGame which takes in one parameter amount. The function should return another function that takes in a parameter called guess. In the outer function, you should create a variable called answer which is the result of a random number between 0 and 10 as well as a variable called guesses which should be set to 0.
+
+// In the inner function, if the guess passed in is the same as the random number (defined in the outer function) - you should return the string "You got it!". If the guess is too high return "You're too high!" and if it is too low, return "You're too low!". You should stop the user from guessing if the amount of guesses they have made is greater than the initial amount passed to the outer function.
+
+// You will have to make use of closure to solve this problem.
+
+function guessingGame (amount) {
+    let answer = Math.floor(Math.random() * 10) + 1;
+    let guesses = 0;
+    return function (guess) {
+        guesses ++;
+        if (guess == answer && guesses <= amount) return "You got it!";
+        else if (guess > answer && guesses <= amount) return "You're too high!";
+        else if (guess < answer && guesses <= amount) return "You're too low!";
+        return "You are all done playing!";
+    }
+}
+
+var game = guessingGame(5)
+game(1) // "You're too low!" 
+game(8) // "You're too high!"
+game(5) // "You're too low!"
+game(7) // "You got it!" 
+game(1) // "You are all done playing!" 
+
+var game2 = guessingGame(3)
+game2(5) // "You're too low!" 
+game2(3) // "You're too low!"
+game2(1) // "No more guesses the answer was 0" 
+game2(1) // "You are all done playing!" 

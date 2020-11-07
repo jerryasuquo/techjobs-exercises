@@ -1,0 +1,125 @@
+// ES2015 Exercises.
+
+// Convert the following es5 code blocks into es2015 code:
+
+// 1.
+var person = {
+    fullName: "Harry Potter",
+    sayHi: function(){
+        setTimeout(function(){
+            console.log("Your name is " + this.fullName)
+        }.bind(this),1000)
+    }
+}
+
+// Ans:
+let person = {
+    fullName: "Harry Potter",
+    sayHi() {
+        setInterval(() => {
+            console.log(`Your Name is ${this.fullName}`)
+        }, 1000)
+    }
+}
+
+// 2.
+var name = "Josie"
+console.log("When " + name + " comes home, so good")
+
+// Ans:
+let name = "Josie";
+console.log(`When ${name} comes home, so good`);
+
+// 3.
+var DO_NOT_CHANGE = 42;
+DO_NOT_CHANGE = 50; // stop me from doing this!
+
+// Ans:
+const DO_NOT_CHANGE = 42;
+DO_NOT_CHANGE = 50; // a const value cannot be reassigned
+
+// 4.
+var arr = [1,2]
+var temp = arr[0]
+arr[0] = arr[1]
+arr[1] = temp
+
+// Ans:
+let arr = [1, 2];
+let [num1, num2] = arr;
+[num1, num2] = [num2, num1];
+
+// 5.
+function double(arr){
+    return arr.map(function(val){
+        return val*2
+    });
+}
+
+// Ans:
+let double = arr => arr.map(val => val * 2);
+
+// 6.
+var obj = {
+    numbers: {
+        a: 1,
+        b: 2
+    } 
+}
+
+var a = obj.numbers.a;
+var b = obj.numbers.b;
+
+// Ans:
+let obj = {
+    numbers: {
+        a: 1,
+        b: 2
+    }
+}
+
+let {a, b} = obj.numbers;
+
+function add(a,b){
+    if(a === 0) a = 0
+    else {
+        a = a || 10    
+    }
+    if(b === 0) b = 0
+    else {
+        b = b || 10    
+    }
+    return a+b
+}
+
+Ans:
+const add = (a = 10, b = 10) => return a + b;
+
+Research the following functions - what do they do?
+
+Array.from
+// The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+console.log(Array.from('foo')); // Array ["f", "o", "o"]
+
+Object.assign
+// The Object.assign() method copies all enumerable own properties from one or more source objects to a target object. It returns the target object.
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(returnedTarget); // Object { a: 1, b: 4, c: 5 }
+
+Array.includes
+// Array.includes:The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+const uint8 = new Uint8Array([10, 20, 30, 40, 50]);
+
+console.log(uint8.includes(20)); // true
+
+String.startsWith
+// The startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate.
+
+const str1 = 'Saturday night plans';
+
+console.log(str1.startsWith('Sat')); // true

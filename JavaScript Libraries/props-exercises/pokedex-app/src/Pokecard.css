@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Geneva, Verdana, sans-serif;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-left: 30%;
+  padding: 1.1em 0;
+  color: #777;
+  font-weight: 600;
+}
+
+.card-box {
+  width: 55%;
+}
+
+.card {
+  background-color: #ddd;
+  list-style: none;
+  border-radius: 10px;
+  padding: 2.1em 0;
+  text-align: center;
+  width: 25%;
+  margin: 0 2.1em 2.1em 0;
+  float: left;
+}
+
+.card h2 {
+  color: blue;
+  font-weight: 700;
+}
+
+.card img {
+  padding: 23px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 105%;
+  }
+}

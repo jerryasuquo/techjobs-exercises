@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box-style {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    border: none;
+}

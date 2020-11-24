@@ -2,9 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Live Site
+
+The live site is available on:
+https://react-robojay-app.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+## `npm install`
+
+Downloads node modules
 
 ### `yarn start`
 

@@ -1,0 +1,21 @@
+input[type="text"] {
+    padding: 8px;
+    min-width: 200px;
+    margin: 0 10px;
+    border-radius: 8px;
+    border: 1px solid #777;
+}
+
+input[type="submit"] {
+    background-color: #5dc224;
+}
+
+form {
+    margin: 30px auto;
+    width: 60%;
+}
+
+.input-area {
+    display: inline-block;
+    margin: 10px;
+}
